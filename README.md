@@ -5,10 +5,12 @@ These pipelines are in standard tekton format. They can be found in ./pac/pipeli
 # Install 
 
 1. To use these pipelines, copy the appropriate build from ./pac into .tekton and customize as needed.
-   
-    - `docker-build-shared` uses dockerfiles to build your app and will use a shared configuration for automatic pipeline updates
+
+    - `docker-build-shared` uses dockerfiles to build your app 
     - `nodejs-build` node - npm based build for node.js 
-    - java-build -  s2i-java builder 
+    - `java-build` -  s2i-java builder
+  
+    - PaC Pipeline Runs marked `shared` will use a shared configuration for automatic pipeline updates from your centrally managed Standard Pipelines
 
 3. Modify the copied files using the placeholders names in template format for the specifics for your application
 
