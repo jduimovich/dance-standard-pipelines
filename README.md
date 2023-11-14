@@ -15,12 +15,13 @@ The .tekton directories for default pipeline can be found in the ./pac as builde
 
 3. Modify the copied files using the placeholders names in template format for the specifics for your application
 
-   - `{{values.appName}}`  the app name for your component 
-   - `{{values.dockerfileLocation}}`  the dockerfile location for your component
-   - `{{values.namespace}}`  the namespace location for your component
-   - `{{values.image}}`  the image for your destination 
-   - `{{values.namespace}}`  the namespace location for your component
-   - `{{values.buildContext}}`  the namespace location for your component
+   - `{{values.appName}}`  - the app name for your component 
+   - `{{values.dockerfileLocation}}`  - the dockerfile location for your component
+   - `{{values.namespace}}`  - the namespace location for your component
+   - `{{values.image}}`  - the image for your destination 
+   - `{{values.namespace}}`  - the namespace location for your component
+   - `{{values.buildContext}}`  - the namespace location for your component
+   - `{{values.repoURL}}` - the repository url for the generated repository
     
 
 ## Backstage
@@ -32,6 +33,8 @@ Note, PaC also has `{{variables}}` and you should not modify those.
    - `{{values.namespace}}-> ${{ values.namespace }} ` 
    - `{{values.image}}-> ${{ values.image }} ` 
    - `{{values.namespace}}-> ${{ values.namespace }} ` 
-   - `{{values.buildContext}}-> ${{ values.buildContext }} `   
+   - `{{values.buildContext}}-> ${{ values.buildContext }} `  
+   - `{{values.repoURL}}-> ${{values.repoURL}}`  
+    
 
  TBD use backstage format ?
