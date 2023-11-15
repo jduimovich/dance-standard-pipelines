@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   annotations:
@@ -92,18 +92,18 @@ spec:
     - name: IMAGE_EXPIRES_AFTER
       value: $(params.IMAGE_EXPIRES_AFTER)
   steps:
-  - env:
-    - name: COMMIT_SHA
-      value: $(params.COMMIT_SHA)
-    image: $(params.BUILDER_IMAGE)
-    name: build
-    resources:
+  - computeResources:
       limits:
         cpu: 2
         memory: 10Gi
       requests:
         cpu: 250m
         memory: 8Gi
+    env:
+    - name: COMMIT_SHA
+      value: $(params.COMMIT_SHA)
+    image: $(params.BUILDER_IMAGE)
+    name: build
     script: |
       SOURCE_CODE_DIR=source
       if [ -e "$SOURCE_CODE_DIR/$CONTEXT/$DOCKERFILE" ]; then
@@ -189,7 +189,7 @@ spec:
     - mountPath: /var/lib/containers
       name: varlibcontainers
     workingDir: $(workspaces.source.path)
-  - image: quay.io/redhat-appstudio/syft:v0.95.0
+  - image: quay.io/redhat-appstudio/syft:v0.96.0
     name: sbom-syft-generate
     script: |
       syft dir:$(workspaces.source.path)/source --output cyclonedx-json=$(workspaces.source.path)/sbom-source.json
@@ -276,9 +276,9 @@ spec:
     securityContext:
       runAsUser: 0
     workingDir: $(workspaces.source.path)
-  - image: $(params.BUILDER_IMAGE)
+  - computeResources: {}
+    image: $(params.BUILDER_IMAGE)
     name: inject-sbom-and-push
-    resources: {}
     script: |
       # Expose base image digests
       buildah images --format '{{ .Name }}:{{ .Tag }}@{{ .Digest }}' | grep -v $IMAGE > $(results.BASE_IMAGES_DIGESTS.path)
