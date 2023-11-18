@@ -3,6 +3,8 @@
 These pipelines are in standard tekton format. They can be found in ./pac/pipelines and ./pac/tasks.
 The .tekton directories for default pipeline can be found in the ./pac as builders
 
+THis repository also has openshift formatted templates in ./openshift-templates
+
 # Install 
 
 1. To use these pipelines, copy the appropriate build from ./pac into .tekton and customize as needed.
@@ -35,6 +37,4 @@ Note, PaC also has `{{variables}}` and you should not modify those.
    - `{{values.namespace}}-> ${{ values.namespace }} ` 
    - `{{values.buildContext}}-> ${{ values.buildContext }} `  
    - `{{values.repoURL}}-> ${{values.repoURL}}`  
-    
-
- TBD use backstage format ?
+     
