@@ -1,3 +1,4 @@
-docker-build in RHTAP format 
+# docker-build in RHTAP format 
 
-PaC template for dockerfile builds. 
+The PaC templates are in RHTAP format with inline task definitions.
+This pipeline is used to create dockerfile builds. 
