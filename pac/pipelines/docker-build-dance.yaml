@@ -127,7 +127,7 @@ spec:
         - name: output
           workspace: workspace
         - name: basic-auth
-          workspace: git-auth 
+          workspace: git-auth
     - name: build-container
       params:
         - name: IMAGE
@@ -179,7 +179,7 @@ spec:
             - "true"
       workspaces:
         - name: workspace
-          workspace: workspace 
+          workspace: workspace
     - name: clair-scan
       params:
         - name: image-digest
@@ -195,7 +195,7 @@ spec:
         - input: $(params.skip-checks)
           operator: in
           values:
-            - "false"  
+            - "false"
     - name: sbom-json-check
       params:
         - name: IMAGE_URL
