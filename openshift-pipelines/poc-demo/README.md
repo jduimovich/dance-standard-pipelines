@@ -1,3 +1,5 @@
-# openshift-pipelines
+# openshift-pipelines formatted pipelines 
 
-Thes pipeline can be installed into openshift namespace and be used in the create application flow in Console.
+### The pipelines in this directory are used in the OpenShift console. 
+
+Install into OCP for integration in Console Create Application flow
