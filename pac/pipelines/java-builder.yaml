@@ -106,7 +106,6 @@ spec:
           value: $(context.pipelineRun.uid)
       taskRef:
         name: init
-        version: "0.1"
     - name: clone-repository
       params:
         - name: url
@@ -117,7 +116,6 @@ spec:
         - init
       taskRef:
         name: git-clone
-        version: "0.1"
       when:
         - input: $(tasks.init.results.build)
           operator: in
@@ -136,7 +134,6 @@ spec:
         - clone-repository
       taskRef:
         name: prefetch-dependencies
-        version: "0.1"
       when:
         - input: $(params.hermetic)
           operator: in
@@ -159,7 +156,6 @@ spec:
         - prefetch-dependencies
       taskRef:
         name: s2i-java
-        version: "0.1"
       when:
         - input: $(tasks.init.results.build)
           operator: in
@@ -178,7 +174,6 @@ spec:
         - build-container
       taskRef:
         name: source-build
-        version: "0.1"
       when:
         - input: $(tasks.init.results.build)
           operator: in
@@ -199,7 +194,6 @@ spec:
         - build-container
       taskRef:
         name: deprecated-image-check
-        version: "0.3"
       when:
         - input: $(params.skip-checks)
           operator: in
@@ -215,7 +209,6 @@ spec:
         - build-container
       taskRef:
         name: clair-scan
-        version: "0.1"
       when:
         - input: $(params.skip-checks)
           operator: in
@@ -226,7 +219,6 @@ spec:
         - clone-repository
       taskRef:
         name: sast-snyk-check
-        version: "0.1"
       when:
         - input: $(params.skip-checks)
           operator: in
@@ -245,7 +237,6 @@ spec:
         - build-container
       taskRef:
         name: clamav-scan
-        version: "0.1"
       when:
         - input: $(params.skip-checks)
           operator: in
@@ -261,7 +252,6 @@ spec:
         - build-container
       taskRef:
         name: sbom-json-check
-        version: "0.1"
       when:
         - input: $(params.skip-checks)
           operator: in
