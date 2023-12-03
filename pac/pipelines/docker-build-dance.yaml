@@ -88,7 +88,7 @@ spec:
     - default: common-password-secret-not-configured
       name: common-password-secret
       type: string
-    - default: common-password-secret-not-configured
+    - default: git-owner-not-configured
       name: git-owner
       type: string
     - default: git-host-not-configured
