@@ -2,7 +2,10 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 COUNTER=0
 TASKS=$(yq .spec.tasks.[].taskRef.name $1)  
-for task in $TASKS
+FINALLY=$(yq .spec.finally.[].taskRef.name $1)  
+echo "Found tasks names: $TASKS $FINALLY"
+
+for task in $TASKS $FINALLY
 do
 #    echo "# $task" 
 if [ -f $SCRIPTDIR/../pac/tasks/$task.yaml ]; then
