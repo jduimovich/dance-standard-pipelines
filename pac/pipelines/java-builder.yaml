@@ -14,7 +14,6 @@ spec:
           value: $(tasks.build-container.results.IMAGE_URL)
       taskRef:
         name: show-sbom
-        version: "0.1"
     - name: show-summary
       params:
         - name: pipelinerun-name
@@ -27,7 +26,6 @@ spec:
           value: $(tasks.build-container.status)
       taskRef:
         name: summary
-        version: "0.1"
   params:
     - description: Source Repository URL
       name: git-url
