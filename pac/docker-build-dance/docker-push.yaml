@@ -7,7 +7,7 @@ metadata:
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]"
     pipelinesascode.tekton.dev/max-keep-runs: "2"
-    pipelinesascode.tekton.dev/pipeline: "{{values.rawUrl}}/pac/pipelines/docker-build.yaml"
+    pipelinesascode.tekton.dev/pipeline: "{{values.rawUrl}}/pac/pipelines/docker-build-dance.yaml"
     pipelinesascode.tekton.dev/task-0: "{{values.rawUrl}}/pac/tasks/init.yaml"
     pipelinesascode.tekton.dev/task-1: "{{values.rawUrl}}/pac/tasks/git-clone.yaml"
     pipelinesascode.tekton.dev/task-2: "{{values.rawUrl}}/pac/tasks/buildah.yaml"
