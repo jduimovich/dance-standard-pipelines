@@ -63,6 +63,11 @@ spec:
         #!/usr/bin/env sh
 
         set -eu -o pipefail
+        
+        if [[ "$(params.component_id)" == "component-id-not-configured" ]] ; then
+          echo "component-id-not-configured is set, demo will exit with success" 
+          exit 0
+        fi
 
         if [[ "$(params.verbose)" == "true" ]] ; then
           set -x

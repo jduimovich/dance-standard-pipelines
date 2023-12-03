@@ -45,6 +45,11 @@ spec:
     script: |
       #!/usr/bin/env bash
       set +x
+      if [[ "$ROX_API_TOKEN)" == "rox_api_token" ]] ; then
+        echo "rox_api_token is not set, demo will exit with success" 
+        exit 0
+      fi
+
       IMAGE=$(params.image)@$(params.image_digest)
       curl -s -k -L -H "Authorization: Bearer $ROX_API_TOKEN" \
         "https://$(params.rox_central_endpoint)/api/cli/download/roxctl-linux" \
