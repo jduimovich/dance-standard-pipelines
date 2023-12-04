@@ -46,9 +46,10 @@ spec:
       #!/usr/bin/env bash
       set +x
 
-      echo "ROX_API_TOKEN = <$ROX_API_TOKEN?"
+      echo "ROX_API_TOKEN = <$ROX_API_TOKEN>"
       if [[ "$ROX_API_TOKEN" == "rox_api_token" ]] ; then
         echo "rox_api_token is not set, demo will exit with success" 
+        echo "TODO: configure the pipeline to have access to ROXCTL" 
         exit 0
       fi
 
