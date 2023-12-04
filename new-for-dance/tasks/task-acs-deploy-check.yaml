@@ -115,12 +115,10 @@ spec:
 
         set +x
         
-        echo $ROX_API_TOKEN
-        if [[ "$ROX_API_TOKEN" == "rox_api_token" ]] ; then
-          echo "rox_api_token is not set, demo will exit with success" 
+        if [[ "$(params.component_id)" == "component-id-not-configured" ]] ; then
+          echo "component-id-not-configured is set, demo will exit with success" 
           exit 0
-        fi
-
+        fi 
 
         cd /workspace/repository/helm/app/out/spring-template/templates
 
