@@ -76,7 +76,7 @@ spec:
       description: Build a source image.
       name: build-source-image
       type: string
-    - default: central.rhacs-operator.svc.cluster.local
+    - default: "central.rhacs-operator.svc.cluster.local:443"
       name: stackrox-endpoint
       type: string
     - default: stackrox-secret-not-configured
