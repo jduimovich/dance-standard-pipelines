@@ -1,5 +1,12 @@
-# dance-standard-pipelines
 
+
+# PoC moved to https://github.com/redhat-appstudio/tssc-sample-pipelines
+
+# do not use this repo
+
+`----------------------------------------`
+
+# dance-standard-pipelines
 These pipelines are in standard tekton format. They can be found in ./pac/pipelines and ./pac/tasks.
 The .tekton directories for default pipeline can be found in the ./pac as builders
 
